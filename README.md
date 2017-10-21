@@ -1,8 +1,6 @@
 ## What?
 
-[![conductaid_in_action](http://img.youtube.com/vi/-ykVSQuXuH0/0.jpg)](http://www.youtube.com/watch?v=-ykVSQuXuH0)
-
-[linkname](https://youtu.be/PW5XejT9XOs)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
 
 conductaid is a set of wearable devices that help visually impaired musicians
 in orchestras, by translating the motions of the conductor as audible feedback
