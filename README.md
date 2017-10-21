@@ -23,3 +23,15 @@ and the visually impaired musicians - and is asking your help in doing so.
 ## How?
 
 Coding and algorithms.
+
+### Tempo
+
+### Volume
+
+### Cue
+
+### Livestreaming
+
+### Source Code
+
+## Future Steps
