@@ -24,6 +24,11 @@ and the visually impaired musicians - and is asking your help in doing so.
 
 Coding and algorithms.
 
+![60 BPM Analysis Results](https://raw.githubusercontent.com/otalu/conductaid/master/60bpm_filter_fft.png)
+
+
+![120 BPM Analysis Results](https://raw.githubusercontent.com/otalu/conductaid/master/120bpm_filter_fft.png)
+
 ### Tempo
 
 ### Volume
