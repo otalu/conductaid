@@ -45,8 +45,7 @@ When the phone accelerometer is oriented as in the figure above, this movement c
 
 Because most conducting patterns involve one up/down motion per beat, the y-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the y-acceleration data, filter it, and extract the most prominent frequency.
 
-> Insert FFT diagrams showing peaks here
-
+![Our model of the phone's motion.](FFT1.png)
 As can be seen in the above figure, there is a noticeable spike in the FFT at the frequency corresponding to BPM/60, (aka the beats per second). We can use this to determine the tempo of the music based on the Fourier transform of the x-acceleration data.
 
 ### Volume
