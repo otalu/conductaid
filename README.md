@@ -35,6 +35,12 @@ Coding and algorithms.
 
 ![120 BPM Analysis Results](120bpm_filter_fft.png)
 
+### Real-time Signal Analysis
+
+In order to provide real-time feedback to the musician, we have to be able to analyze it in real-time. To accomplish this, we stream the accelerometer data from the
+
+
+
 ### Tempo
 
 In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the x-axis of the accelerometer.
