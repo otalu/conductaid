@@ -1,56 +1,49 @@
-## What?
+## ConductAid: Helping Visually-Impaired Musicians
 
+For musicians in orchestras, reading the conductor's movements is critical; however, the conductor is often far away from many members of the orchestra, which is an issue for visually-impaired musicians. We've designed a solution for that issue - ConductAid is a set of wearable devices that help visually-impaired musicians by translating the motions and instructions of the conductor to the musicians through haptic feedback.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
+## Our Purpose
 
-ConductAid is a set of wearable devices that help visually-impaired musicians
-in orchestras, by translating the motions of the conductor as haptic feedback
-to the musicians.
+From Ray Charles to Stevie Wonder, from Ronnie Millsap to Andrea Bocelli, many
+musicians let the world enjoy their music despite their visual impairments. Although music is an important outlet for many visually impaired people, there are no methods in place to allow visually impaired musicians to perform in orchestras. ConductAid is aiming to remove the communication barrier between the conductor and the musicians.
 
-![conductaid in action.](QEAGraphic1.png)
+## How it Works
+
+![ConductAid in action.](QEAGraphic1.png)
 
 ConductAid consists of two devices: a wearable wireless sensing device that straps on to the hand of the conductor, and a feedback device worn on the arm/wrist of the musician. An accelerometer on the sensing device reads the movements of the conductor, and determines three parameters:
 
-  * **Tempo:** The speed at which the music is played, and changes in the speed (slowing down or speeding up). The conductor moves their hand/baton in time with the beat.
-  * **Volume:** How loud the music is played, and how that changes - crescendo (increasing volume) or decrescendo (decreasing volume). Indicated by how widely the conductor swings the baton - wider movements mean higher volume.
+  * **Tempo:** The speed at which the music is played, and changes in the speed (slowing down or speeding up). The conductor indicates tempo by moving their hand or baton in time with the beat.
+  * **Volume:** How loud the music is played, and how that changes - crescendo (increasing volume) or decrescendo (decreasing volume). Indicated by how widely the conductor swings the baton - wider movements are louder.
   * **Cueing:** The instructions for each musician/section to begin playing, indicated by pointing the conductor pointing their hand or baton.
 
-These parameters of the musical performance are some of the most critical, and difficult to ascertain, factors for visually-impaired musicians. ConductAid determines these three parameters based on the accelerometer data, and transmits feedback to the musician's wearable in the form of haptic feedback that alerts the musician to important changes in the music.
+These parameters of the musical performance are some of the most critical factors for musicians playing in an orchestra. ConductAid determines these three parameters based on the sensor data, and transmits feedback to the musician's wearable in the form of haptic feedback that alerts the musician to important changes in the music.
 
-## Why?
+### Real-time Sensing and Analysis
 
-From Ray Charles to Stevie Wonder, from Ronnie Millsap to Andrea Bocelli, many
-musicians let the world enjoy their music, despite their visual impairments.
+ConductAid utilizes an accelerometer to provide data on the acceleration of the conductor's hand.
 
-Despite music is a ubiquitous outlet for visually impaired members of the
-society, there are no methods in place to allow visually impaired musicians
-to perform in orchestras.
+![ConductAid's real-time sensing.](QEADiagram2.png)
 
-ConductAid is aiming to remove the communication barrier between the conductor
-and the visually impaired musicians - and is asking your help in doing so.
+In order to provide real-time feedback to the musician, we have to be able to analyze data in real-time. To accomplish this, we stream the accelerometer data from the accelerometer (on the conductor's device) to the musician where it's analyzed in order to determine the parameters and provide haptic feedback.
 
-## How?
+## Determining the Parameters
 
-Coding and algorithms.
-
-![60 BPM Analysis Results](60bpm_filter_fft.png)
-![120 BPM Analysis Results](120bpm_filter_fft.png)
-
-### Real-time Signal Analysis
-
-In order to provide real-time feedback to the musician, we have to be able to analyze it in real-time. To accomplish this, we stream the accelerometer data from the
-
-
+For our proof of concept, we focused on analysis of the accelerometer data. In order to quickly test our analysis, we set up the accelerometer on a smartphone to stream data to a computer for analysis. We conducted experiments by having multiple users conduct at various tempos (60 - 120 BPM) and at different time signatures (4/4, 3/4 and 6/8). From that, we analyzed the data for our parameters of interest:
 
 ### Tempo
 
-In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the x-axis of the accelerometer.
+In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the y-axis of the phone accelerometer:
 
-> Insert diagram of our model here
+![The coordinate system of the phone accelerometer.](QEADiagram3.png)
 
-Based on our simplified model of the arm in which only the elbow and the wrist are bending, any up/down movement of the hand is going to require some rotation, at either the elbow or the wrist. This causes acceleration toward the elbow, as shown in the figure above. In the reference frame of the accelerometer, the x-axis will be mostly pointing toward the elbow of the wearer; so, rotating one's arm down will cause a noticeable acceleration in the x-axis of the sensor.
+Based on our simplified model of the arm in which only the elbow and the wrist are bending, any up/down movement of the hand is going to require rotation at either the elbow or the wrist.
 
-Because most conducting patterns involve one up/down motion per beat, the x-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the x-acceleration data, filter it, and extract the most prominent frequency.
+![Our model of the phone's motion.](QEADiagram1.png)
+
+When the phone accelerometer is oriented as in the figure above, this movement causes acceleration toward the elbow, because in the reference frame of the accelerometer, the y-axis will be mostly pointing toward the elbow of the wearer; so, rotating one's arm down will cause a noticeable acceleration in the y-axis of the sensor.
+
+Because most conducting patterns involve one up/down motion per beat, the y-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the y-acceleration data, filter it, and extract the most prominent frequency.
 
 > Insert FFT diagrams showing peaks here
 
