@@ -1,19 +1,15 @@
 ## What?
 
-<<<<<<< HEAD
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
 
-ConductAid is a set of wearable devices that help visually impaired musicians
-in orchestras, by translating the motions of the conductor as audible feedback
-=======
 ConductAid is a set of wearable devices that help visually-impaired musicians
 in orchestras, by translating the motions of the conductor as haptic feedback
->>>>>>> b31cae730d839d63f3578df033b87a59b3e1827f
 to the musicians.
 
 ![conductaid in action.](QEAGraphic1.png)
 
-conductaid consists of two devices: a wearable wireless sensing device that straps on to the hand of the conductor, and a feedback device worn on the arm/wrist of the musician. An accelerometer on the sensing device reads the movements of the conductor, and determines three parameters:
+ConductAid consists of two devices: a wearable wireless sensing device that straps on to the hand of the conductor, and a feedback device worn on the arm/wrist of the musician. An accelerometer on the sensing device reads the movements of the conductor, and determines three parameters:
 
   * **Tempo:** The speed at which the music is played, and changes in the speed (slowing down or speeding up). The conductor moves their hand/baton in time with the beat.
   * **Volume:** How loud the music is played, and how that changes - crescendo (increasing volume) or decrescendo (decreasing volume). Indicated by how widely the conductor swings the baton - wider movements mean higher volume.
@@ -35,15 +31,9 @@ and the visually impaired musicians - and is asking your help in doing so.
 
 ## How?
 
-<<<<<<< HEAD
-![60 BPM Analysis Results](https://raw.githubusercontent.com/otalu/conductaid/master/60bpm_filter_fft.png)
-=======
 Coding and algorithms.
 
 ![60 BPM Analysis Results](60bpm_filter_fft.png)
->>>>>>> b31cae730d839d63f3578df033b87a59b3e1827f
-
-
 ![120 BPM Analysis Results](120bpm_filter_fft.png)
 
 ### Tempo
@@ -66,16 +56,14 @@ Even though there are various conventions on how a conductor communicates volume
 to their orchestra, one of the most common ways is by the size of their motions -
 larger motions indicating larger volume.
 
-<<<<<<< HEAD
 In order to translate that motion to the musicians, a Fourier Analysis is performed
 on the livestream data that is received from the accelerometers, and is filtered
 based on the tempo of the movements. Based on this filtering, the amplitude of the
 overruling frequency (which is also the tempo of the music piece), is the volume.
-=======
+
 ### Livestreaming Proof of Concept
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
->>>>>>> b31cae730d839d63f3578df033b87a59b3e1827f
 
 Over the course of the music piece, the volume information from a time interval is
 averaged and communicated to the musician.
