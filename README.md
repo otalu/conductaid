@@ -45,8 +45,9 @@ When the phone accelerometer is oriented as in the figure above, this movement c
 
 Because most conducting patterns involve one up/down motion per beat, the y-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the y-acceleration data, filter it, and extract the most prominent frequency.
 
-![Our model of the phone's motion.](FFT1.png)
-As can be seen in the above figure, there is a noticeable spike in the FFT at the frequency corresponding to BPM/60, (aka the beats per second). We can use this to determine the tempo of the music based on the Fourier transform of the x-acceleration data.
+![The frequency analysis of our data.](FFT1.png)
+
+We begin by filtering the data, limiting it to frequencies less than ~3 Hz, as that is the highest frequency we expect. As can be seen in the above figure, there is a noticeable spike in the amplitude at the frequency corresponding to BPM/60 (i.e. the beats per second) - when the conducting is being done at 120 BPM the spike is at 2 Hz, and at 60 BPM the spike is at 1 Hz. We can use this to determine the tempo of the music based on the Fourier transform of the x-acceleration data.
 
 ### Volume
 
@@ -59,6 +60,16 @@ on the livestream data that is received from the accelerometers, and is filtered
 based on the tempo of the movements. Based on this filtering, the amplitude of the
 overruling frequency (which is also the tempo of the music piece), is the volume.
 
+### Cues
+
+In order to detect cueing, we perform similar analysis to the tempo detection. Because cueing is indicated by pointing, the same acceleration should occur along the y axis - except we're now looking for a single spike instead of the frequency.
+
+![Cue detection.](Cue.png)
+
+As can be seen in the figure above, cues correspond to spikes in the y-acceleration. We detect cues by looking at the local maxima of the y-acceleration. From that, we filter the peaks to include peaks in acceleration that "fall off" with a certain steepness, selecting only peaks above a certain threshold.
+
+
+
 ### Livestreaming Proof of Concept
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
@@ -66,7 +77,6 @@ overruling frequency (which is also the tempo of the music piece), is the volume
 Over the course of the music piece, the volume information from a time interval is
 averaged and communicated to the musician.
 
-### Cue
 
 ## Future Steps
 
