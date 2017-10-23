@@ -1,7 +1,4 @@
-<img src="ConductAidLogo.png" align=center width = 300px></img>
-
 ## ConductAid: Helping Visually-Impaired Musicians
-
 For musicians in orchestras, reading the conductor's movements is critical; however, the conductor is often far away from many members of the orchestra, which is an issue for visually-impaired musicians. We've designed a solution for that issue - ConductAid is a set of wearable devices that help visually-impaired musicians by translating the motions and instructions of the conductor to the musicians through haptic feedback.
 
 ## Our Purpose
@@ -36,13 +33,9 @@ For our proof of concept, we focused on analysis of the accelerometer data. In o
 ### Tempo
 
 In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the y-axis of the phone accelerometer:
-
 <img src="QEADiagram3.png" align=center width = 300px></img>
-
 Based on our simplified model of the arm in which only the elbow and the wrist are bending, any up/down movement of the hand is going to require rotation at either the elbow or the wrist.
-
 <img src="QEADiagram1.png" align=center width = 500px></img>
-
 When the phone accelerometer is oriented as in the figure above, this movement causes acceleration toward the elbow, because in the reference frame of the accelerometer, the y-axis will be mostly pointing toward the elbow of the wearer; so, rotating one's arm down will cause a noticeable acceleration in the y-axis of the sensor.
 
 Because most conducting patterns involve one up/down motion per beat, the y-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the y-acceleration data, filter it, and extract the most prominent frequency.
@@ -85,9 +78,7 @@ As can be seen in the figure above, cues correspond to spikes in the y-accelerat
 
 
 ### Proof of Concept In Action
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
-
 This proof-of-concept video demonstrates all the features of our system - tempo detection, volume detection, and cue detection - in real-time. The end result is a system that performs the analysis in real-time and computes the parameters of interest. Since this feedback is in the form of a visual display, it wouldn't work for visually-impaired musicians; however, it could be easily connected to a simple haptic feedback system to notify the musician when values change.
 
 
