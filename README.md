@@ -76,7 +76,7 @@ volume) can be obtained.
 
 In order to detect cueing, we perform similar analysis to the tempo detection. Because cueing is indicated by pointing, the same acceleration should occur along the y axis - except we're now looking for a single spike instead of the frequency.
 
-![Cue detection.](Cue.png)
+[H][Cue detection.](Cue.png)
 
 As can be seen in the figure above, cues correspond to spikes in the y-acceleration. We detect cues by looking at the local maxima of the y-acceleration. From that, we filter the peaks to include peaks in acceleration that "fall off" with a certain steepness, selecting only peaks above a certain threshold.
 
