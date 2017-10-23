@@ -2,6 +2,10 @@ img {
   align: center;
 }
 
-.page-header {
+.project-tagline {
+  text-shadow: 2px 2px #000000;
+}
+
+.overwrite {
   background-image: url("https://raw.githubusercontent.com/otalu/conductaid/master/background.jpg");
 }
