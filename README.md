@@ -34,23 +34,20 @@ For our proof of concept, we focused on analysis of the accelerometer data. In o
 
 In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the y-axis of the phone accelerometer:
 
-<p align="center">
-  <img src="QEADiagram3.png" width = 300px></img>
-</p>
+![The phone coordinate system.](QEADiagram3.png)
+
 
 Based on our simplified model of the arm in which only the elbow and the wrist are bending, any up/down movement of the hand is going to require rotation at either the elbow or the wrist.
 
-<p align="center">
-  <img src="QEADiagram1.png" width = 500px></img>
-</p>
+![Our model of acelerometer motion.](QEADiagram1.png)
+
 
 When the phone accelerometer is oriented as in the figure above, this movement causes acceleration toward the elbow, because in the reference frame of the accelerometer, the y-axis will be mostly pointing toward the elbow of the wearer; so, rotating one's arm down will cause a noticeable acceleration in the y-axis of the sensor.
 
 Because most conducting patterns involve one up/down motion per beat, the y-acceleration should be roughly periodic with a period of one beat. Based on this, we can take the Fourier transform of the y-acceleration data, filter it, and extract the most prominent frequency.
 
-<p align="center">
-  <img src="FFT1.png"></img>
-</p>
+![The frequency domain of our data.](FFT1.png)
+
 
 We begin by filtering the data, limiting it to frequencies less than ~3 Hz, as that is the highest frequency we expect. As can be seen in the above figure, there is a noticeable spike in the amplitude at the frequency corresponding to BPM/60 (i.e. the beats per second) - when the conducting is being done at 120 BPM the spike is at 2 Hz, and at 60 BPM the spike is at 1 Hz. We can use this to determine the tempo of the music based on the Fourier transform of the x-acceleration data.
 
