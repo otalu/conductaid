@@ -1,3 +1,5 @@
+<img src="ConductAidLogo.png" align=center width = 300px></img>
+
 ## ConductAid: Helping Visually-Impaired Musicians
 
 For musicians in orchestras, reading the conductor's movements is critical; however, the conductor is often far away from many members of the orchestra, which is an issue for visually-impaired musicians. We've designed a solution for that issue - ConductAid is a set of wearable devices that help visually-impaired musicians by translating the motions and instructions of the conductor to the musicians through haptic feedback.
@@ -29,7 +31,7 @@ In order to provide real-time feedback to the musician, we have to be able to an
 
 ## Determining the Parameters
 
-For our proof of concept, we focused on analysis of the accelerometer data. In order to quickly test our analysis, we set up the accelerometer on a smartphone to stream data to a computer for analysis. We conducted experiments by having multiple users conduct at various tempos (60 - 120 BPM) and at different time signatures (4/4, 3/4 and 6/8). From that, we analyzed the data for our parameters of interest:
+For our proof of concept, we focused on analysis of the accelerometer data. In order to quickly test our analysis, we set up the accelerometer on a smartphone to stream data to a computer for analysis, and strapped the phone to the conductor's hand. We conducted experiments by having multiple users conduct at various tempos (60 - 120 BPM) and at different time signatures (4/4, 3/4 and 6/8). From that, we analyzed the data for our parameters of interest:
 
 ### Tempo
 
@@ -82,12 +84,11 @@ As can be seen in the figure above, cues correspond to spikes in the y-accelerat
 
 
 
-### Livestreaming Proof of Concept
+### Proof of Concept In Action
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gs7KTd38o4Y" frameborder="0" allowfullscreen></iframe>
 
-Over the course of the music piece, the volume information from a time interval is
-averaged and communicated to the musician.
+This proof-of-concept video demonstrates all the features of our system - tempo detection, volume detection, and cue detection - in real-time. The end result is a system that performs the analysis in real-time and computes the parameters of interest. Since this feedback is in the form of a visual display, it wouldn't work for visually-impaired musicians; however, it could be easily connected to a simple haptic feedback system to notify the musician when values change.
 
 
 ## Future Steps
