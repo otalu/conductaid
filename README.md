@@ -57,8 +57,20 @@ larger motions indicating larger volume.
 
 In order to translate that motion to the musicians, a Fourier Analysis is performed
 on the livestream data that is received from the accelerometers, and is filtered
-based on the tempo of the movements. Based on this filtering, the amplitude of the
-overruling frequency (which is also the tempo of the music piece), is the volume.
+based on the tempo of the movements. Based on this filtering, the trailing averages
+of the amplitudes of the overruling frequency (which is also the tempo of the music piece),
+give the volume of the song.
+
+Based on the abrupt changes in volumes, musicians can be alerted on when they should
+play more or less loudly.
+
+![Livestream volume plot](livestream_volume.png)
+
+The livestream application of the algorithm can be seen on the plot above, where three
+different volume levels were tested. As seem on the plot, when the conductor changes
+the sizes of their movements, there is dramatic change in the volume output of
+the algorithm, from which crescendo (increase in volume) and decrescendo (decrease in
+volume) can be obtained.
 
 ### Livestreaming Proof of Concept
 
@@ -96,8 +108,6 @@ it is one of the priorities of the team, moving forward.
 Collaboration with visually impaired musicians is necessary in order to optimize
 the reliability and ergonomics of the device, so that it in its most helpful
 and beneficial form.
-
-###
 
 ## Source Code
 
