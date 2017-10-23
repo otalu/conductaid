@@ -78,7 +78,7 @@ volume) can be obtained.
 
 In order to detect cueing, we perform similar analysis to the tempo detection. Because cueing is indicated by pointing, the same acceleration should occur along the y axis - except we're now looking for a single spike instead of the frequency.
 
-<img align="center" src="Cue.png" alt="Cue">
+<img src="Cue.png" align=center width = 300px></img>
 
 ![Cue detection.](Cue.png)
 
