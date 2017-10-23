@@ -35,11 +35,11 @@ For our proof of concept, we focused on analysis of the accelerometer data. In o
 
 In order to determine the current tempo of the music, we analyze the accelerometer data to determine the most prominent frequencies of movement. Specifically, we focus on acceleration along the y-axis of the phone accelerometer:
 
-![The coordinate system of the phone accelerometer.](QEADiagram3.png)
+<img src="QEADiagram3.png" align=center width = 500px></img>
 
 Based on our simplified model of the arm in which only the elbow and the wrist are bending, any up/down movement of the hand is going to require rotation at either the elbow or the wrist.
 
-![Our model of the phone's motion.](QEADiagram1.png)
+<img src="QEADiagram1.png" align=center width = 500px></img>
 
 When the phone accelerometer is oriented as in the figure above, this movement causes acceleration toward the elbow, because in the reference frame of the accelerometer, the y-axis will be mostly pointing toward the elbow of the wearer; so, rotating one's arm down will cause a noticeable acceleration in the y-axis of the sensor.
 
